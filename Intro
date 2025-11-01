@@ -1,1 +1,39 @@
 
+Introduction
+
+🌐 Qu’est-ce que l’Active Directory (AD) ?
+
+- un outil de gestion centralisée créé par Microsoft pour les réseaux d’entreprise utilisant Windows.
+
+- un service d’annuaire pour les réseaux Windows(un carnet d’adresses intelligent contenant toutes les informations sur les utilisateurs, les ordinateurs, les imprimantes et les serveurs d’une entreprise.
+
+
+🧩 À quoi ça sert ?
+
+Active Directory permet de gérer de manière centralisée les utilisateurs, les ordinateurs et les ressources d’un réseau d’entreprise. 
+
+L’Active Directory permet de :
+
+Créer et gérer les utilisateurs
+→ Exemple : ajouter un nouvel employé, définir son mot de passe, ses droits d’accès, etc.
+
+Gérer les ordinateurs du réseau
+→ Exemple : un ordinateur rejoint le domaine d’entreprise et reçoit automatiquement les règles et configurations définies.
+
+Contrôler les accès aux ressources
+→ Exemple : autoriser certains utilisateurs à accéder à un dossier partagé, une imprimante ou une application.
+
+Appliquer des règles de sécurité
+→ Exemple : imposer un mot de passe fort, bloquer un compte après plusieurs échecs de connexion.
+
+🏢 Pourquoi c’est important ?
+
+Dans une entreprise, il y a souvent des dizaines, voire des milliers d’utilisateurs et d’ordinateurs.
+Sans Active Directory, il faudrait tout configurer manuellement sur chaque machine 😩
+
+Grâce à l’AD :
+
+tout est centralisé ;
+
+les administrateurs peuvent tout gérer depuis un seul endroit ;
+
