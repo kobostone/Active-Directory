@@ -1,0 +1,30 @@
+👥 Les groupes dans Active Directory
+
+Les groupes servent à rassembler plusieurs utilisateurs pour leur donner facilement les mêmes droits ou leur envoyer les mêmes informations.
+
+🎯 À quoi ça sert ?
+
+✅ Gagner du temps : au lieu d'octroyer des droits à chaque utilisateur un par un, on attribue des droits à tout un groupe.
+
+🔒 Mieux sécuriser : seuls les membres du groupe ont accès aux ressources autorisées.
+
+📩 Faciliter la communication : certains groupes servent à envoyer des emails à plusieurs personnes à la fois.
+
+🧩 Les deux types de groupes
+Le type = à quoi sert le groupe (accès ou communication)
+Groupe de sécurité:	Sert à donner des droits d’accès, contrôler l’accès aux ressources  (dossiers, imprimantes, applications, etc.)
+Groupe de distribution	Sert uniquement à envoyer des emails à plusieurs utilisateurs  (pas d’accès aux ressources)
+
+
+🌍 L’étendue du groupe (sa portée)
+
+L’étendue = où le groupe s'applique et avec qui le groupe peut être utilisé
+L’étendue d’un groupe indique où il peut être utilisé et quels objets il peut contenir
+
+Étendue	Description simple	Exemple
+Domaine local:Valable uniquement dans le domaine où il est créé
+Sert à donner des droits sur des ressources dans un seul domaine	Groupe qui donne accès à un dossier partagé dans le domaine entreprise.
+Global	Regroupe des utilisateurs du même domaine et peut être utilisé dans d’autres domaines. Ex:	Groupe “Comptabilité” du domaine A qui accède à une ressource dans le domaine B
+Universel	Regroupe des utilisateurs et groupes de plusieurs domaines d’une même forêt	Groupe “Direction” avec des membres de plusieurs filiales
+
+💡 L’étendue disponible dépend du niveau fonctionnel du domaine ou de la forêt (version d’Active Directory utilisée).
