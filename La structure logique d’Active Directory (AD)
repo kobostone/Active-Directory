@@ -1,0 +1,158 @@
+🏰 1. Forêt (Forest)
+
+🧠 Pense à la forêt comme à une entreprise entière (ex : “Entreprise Corp”).C’est le sommet de la hiérarchie.
+Elle représente la limite de sécurité d’Active Directory.
+Une forêt contient un ou plusieurs arbres.
+Les forêts peuvent être reliées entre elles par des relations d’approbation (trusts) pour partager des ressources.
+
+Contexte fictif : l’entreprise AlphaTech (A) fusionne avec BetaCorp (B)
+
+AlphaTech est une grande entreprise internationale, avec des filiales dans plusieurs continents.
+Elle décide de fusionner avec BetaCorp, une autre société de taille moyenne.
+
+🏗️ Étape 1 — La forêt : le cadre global de sécurité
+
+👉 Dans Active Directory, chaque entreprise a sa propre forêt.
+
+AlphaTech a une forêt nommée :alphatech.local
+
+BetaCorp a une autre forêt :betacorp.local
+
+Ces deux forêts sont complètement indépendantes :Chaque forêt a son propre schéma (règles et modèles d’objets) et un catalogue global (index de tous les objets).
+Elles ont leurs propres règles de sécurité (schéma AD). 
+Leurs catalogues globaux (les index de tous les objets) sont séparés.
+
+Leurs administrateurs ne peuvent pas accéder directement aux ressources de l’autre.
+
+🌲 Étape 2 — Les arbres : divisions DNS dans la forêt
+
+Un arbre est un ensemble de domaines qui partagent un espace de noms DNS commun.
+👉 Autrement dit, c’est une famille de domaines liés entre eux par leur nom.
+Ils partagent tous le même catalogue global et le même schéma AD.
+
+
+🌍 Exemple concret : l’entreprise AlphaTech
+
+Imaginons que la société AlphaTech ait des bureaux dans plusieurs pays d’Europe.
+
+Elle crée une forêt appelée :alphatech.local
+Dans cette forêt, elle décide de créer un arbre Europe :europe.alphatech.local, Amerique  america.alphatech.local,Asie asia.alphatech.local
+Chaque arbre correspond à un grand ensemble logique (souvent un continent ou une grande filiale).
+
+🧱 Étape 3 — Les domaines : gestion des ressources locales
+
+Chaque arbre contient un ou plusieurs domaines, qui servent à gérer les utilisateurs et ordinateurs par zone.
+
+Exemple :Sous l'arbre europe.alphatech.local, on a les domaines enfants :
+
+paris.europe.alphatech.local
+berlin.europe.alphatech.local
+madrid.europe.alphatech.local
+
+Chaque domaine :
+A ses administrateurs locaux
+Gère ses propres stratégies de sécurité
+Peut avoir des relations d’approbation avec d’autres domaines du même arbre
+
+🧠 Un domaine, c’est comme une “succursale” avec sa propre administration.
+
+🧠 En résumé :
+
+La forêt = le plus haut niveau → l’ensemble global de l’entreprise.
+
+L’arbre = une branche DNS dans cette forêt (souvent liée à une région ou un grand service).
+
+Les domaines = les bureaux ou filiales concrètes à l’intérieur de l’arbre.
+
+📘 Exemple visuel simplifié
+🌳 Forêt : alphatech.local
+│
+├── 🌲 Arbre : europe.alphatech.local
+│     ├── Domaine : paris.europe.alphatech.local
+│     ├── Domaine : berlin.europe.alphatech.local
+│     └── Domaine : madrid.europe.alphatech.local
+│
+└── 🌲 Arbre : america.alphatech.local
+      ├── Domaine : newyork.america.alphatech.local
+      └── Domaine : sao-paulo.america.alphatech.local
+
+🧩 Pour bien retenir :
+Élément	Image simple	Rôle
+Forêt	🌍 L’entreprise entière	Contient tous les arbres
+Arbre	🌲 Une grande région ou un service	Contient des domaines liés par le nom DNS
+Domaine	🏢 Une filiale ou un site	Gère ses utilisateurs, ordinateurs et politiques
+
+
+🔗 Étape 4 — Lier les forêts après la fusion
+
+Quand AlphaTech fusionne avec BetaCorp, on a deux choix :
+
+Créer une relation d’approbation (trust) entre les deux forêts
+→ Permet aux utilisateurs d’AlphaTech d’accéder à certaines ressources BetaCorp, et inversement.
+Exemple : le service IT établit une forêt trust bidirectionnelle entre
+alphatech.local ↔ betacorp.local.
+
+
+🗂️ Étape 5 — Les unités d’organisation (OU) : classement interne
+
+Dans chaque domaine, on organise les objets (comptes utilisateurs, ordinateurs, groupes, imprimantes...) dans des OU (Organizational Units).
+
+Exemple dans paris.europe.alphatech.local :
+
+OU principales :OU=Comptabilité, OU=RH, OU=Informatique, OU=Marketing
+
+Chaque OU contient :
+
+Des utilisateurs (ex : Jean Dupont, Sophie Martin)
+Des ordinateurs (ex : PC-RH-01, PC-COMPTA-05)
+Des groupes de sécurité (ex : Groupe_Paie_RH)
+
+Les OU permettent :
+
+De déléguer la gestion (ex : le responsable RH peut gérer ses utilisateurs)
+D’appliquer des stratégies de groupe (GPO) spécifiques (ex : mot de passe fort pour RH)
+De structurer le domaine proprement
+
+🧩 Étape 6 — Les conteneurs spéciaux
+
+Quand on installe un domaine, Active Directory crée automatiquement :
+Builtin → contient les groupes système (Administrateurs, Opérateurs, etc.)
+
+Users → contient les comptes standards créés par défaut
+
+⚠️ Ces conteneurs sont “fixes” :
+on ne peut pas y appliquer de GPO ni déléguer leur gestion.
+
+🧠 Résumé visuel de l’exemple concret
+🌳 Forêt : alphatech.local
+│
+├── 🌲 Arbre : europe.alphatech.local
+│     ├── 🧱 Domaine : paris.europe.alphatech.local
+│     │     ├── 🗂️ OU : Informatique
+│     │     ├── 🗂️ OU : RH
+│     │     ├── 🗂️ OU : Comptabilité
+│     │     └── 🗂️ OU : Marketing
+│     ├── 🧱 Domaine : berlin.europe.alphatech.local
+│     └── 🧱 Domaine : madrid.europe.alphatech.local
+│
+├── 🌲 Arbre : america.alphatech.local
+│     ├── 🧱 Domaine : newyork.america.alphatech.local
+│     └── 🧱 Domaine : sao-paulo.america.alphatech.local
+│
+└── 🌲 Arbre : asia.alphatech.local
+      ├── 🧱 Domaine : tokyo.asia.alphatech.local
+      └── 🧱 Domaine : shanghai.asia.alphatech.local
+
+
+🧠 En résumé :
+
+La forêt = le plus haut niveau → l’ensemble global de l’entreprise.
+
+L’arbre = une branche DNS dans cette forêt (souvent liée à une région ou un grand service).
+
+Les domaines = les bureaux ou filiales concrètes à l’intérieur de l’arbre.
+
+
+
+
+
