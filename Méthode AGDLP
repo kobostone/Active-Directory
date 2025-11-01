@@ -22,11 +22,6 @@ Le groupe local DL_Accès_Dossier_Compta a la permission Lecture/Écriture sur l
 ✅ Avantages de la méthode AGDLP
 
 Structure claire et logique
-
 Facile à maintenir (ajout/suppression d’utilisateurs sans toucher aux droits)
-
 Sécurité renforcée (pas de droits directs sur les comptes)
-
-
-
-Recommandée par Microsoft
+Risques de propagation des infection limitées, car nous attribuons des droits uniquement aux groupes de sécurité avec l'étendue "Domaine local", dont la portée se limite au domaine local. 
