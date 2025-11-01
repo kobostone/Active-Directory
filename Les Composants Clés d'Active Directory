@@ -1,0 +1,16 @@
+Imaginez Active Directory (AD) comme le système d'identification centralisé et l'annuaire téléphonique d'une grande entreprise numérique. 
+
+Il gère qui est qui, où se trouvent les ressources, et qui a le droit de faire quoi.
+
+🔑 Les Composants Clés d'Active Directory
+1. Contrôleur de Domaine (DC) : Le Gardien de la Porte 🛡️
+Rôle simple : C'est le serveur qui détient la base de données centrale d'AD (l'annuaire lui-même). C'est le "chef" du domaine.
+
+Concret : Pensez-y comme l'unique guichet d'accueil de l'entreprise où vous devez vous présenter pour prouver votre identité.
+
+Quand vous allumez votre ordinateur de bureau, c'est le DC qui vérifie si votre nom d'utilisateur et votre mot de passe sont corrects (Authentification).
+
+Il détermine aussi ce que vous avez le droit de faire (accès aux dossiers, imprimantes, etc.) (Autorisation).
+
+Détail : Les entreprises ont souvent plusieurs DCs (Contrôleurs de Domaine) qui copient les informations entre eux (Réplication). 
+Si un DC tombe en panne, les autres prennent le relais immédiatement, assurant une haute disponibilité.
