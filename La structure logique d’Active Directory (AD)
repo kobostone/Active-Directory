@@ -1,5 +1,13 @@
 🏰 1. Forêt (Forest)
 
+4. La Hiérarchie : Arbre et Forêt (Pour aller un peu plus loin)
+Dans les grandes organisations, un seul domaine ne suffit pas. C'est là qu'interviennent l'Arbre (Tree) et la Forêt (Forest) :
+
+🌳 Arbre (Tree) : C'est un groupe de domaines qui partagent un espace de noms contigu. Par exemple, ventes.techcorp.com et support.techcorp.com sont dans le même arbre parce qu'ils se terminent tous les deux par .techcorp.com.
+
+🌲 Forêt (Forest) : C'est l'ensemble le plus large dans Active Directory. C'est une collection d'un ou plusieurs domaines (ou arbres) qui partagent tous la même configuration et le même Schéma (les règles de structuration de la base de données). 
+Si deux domaines sont dans la même Forêt, ils se font automatiquement confiance (Relations d'Approbation).
+
 🧠 Pense à la forêt comme à une entreprise entière (ex : “Entreprise Corp”).C’est le sommet de la hiérarchie.
 Elle représente la limite de sécurité d’Active Directory.
 Une forêt contient un ou plusieurs arbres.
