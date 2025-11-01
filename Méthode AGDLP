@@ -1,0 +1,32 @@
+🧩 Le principe de la méthode AGDLP
+
+Ajout des comptes utilisateurs (A) dans un Groupe Global (G): On regroupe les utilisateurs (Ex: Alice, Bob…) d’un même service (ex : Comptabilité, RH)
+Ajout du Groupe Global dans un  Groupe Domaine Local (DL). NB: (si besoin inter-domaines, ajout dans un Groupe Universel)).
+Attribution des permissions (P) au Groupe Domaine Local sur le répertoire partage:	
+
+Pour simplifier:
+Les utilisateurs (A) sont placés dans des groupes globaux (G),
+ces groupes globaux sont membres de groupes locaux de domaine (DL),
+les groupes locaux de domaine (reçoivent les permissions (P) (lecture, modification, etc.)sur les ressources (ex : dossier partagé, imprimante):
+
+📘 Exemple concret
+
+👩‍💻 Alice → utilisateur (A)
+
+Alice est membre du groupe global GG_Comptabilité (G)
+Ce groupe global est ajouté dans le Groupe Local DL_Accès_Dossier_Compta (DL)
+Le groupe local DL_Accès_Dossier_Compta a la permission Lecture/Écriture sur le dossier \\serveur\compta (P)
+
+👉 Ainsi, si un nouvel employé arrive au service compta, il suffit de l’ajouter dans le groupe GG_Comptabilité, et il aura automatiquement les bons accès.
+
+✅ Avantages de la méthode AGDLP
+
+Structure claire et logique
+
+Facile à maintenir (ajout/suppression d’utilisateurs sans toucher aux droits)
+
+Sécurité renforcée (pas de droits directs sur les comptes)
+
+
+
+Recommandée par Microsoft
