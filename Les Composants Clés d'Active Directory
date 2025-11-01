@@ -14,3 +14,33 @@ Il détermine aussi ce que vous avez le droit de faire (accès aux dossiers, imp
 
 Détail : Les entreprises ont souvent plusieurs DCs (Contrôleurs de Domaine) qui copient les informations entre eux (Réplication). 
 Si un DC tombe en panne, les autres prennent le relais immédiatement, assurant une haute disponibilité.
+
+
+2. DNS (Domain Name System) : La Carte Routière 🗺️
+Rôle simple : C'est le service qui traduit les noms faciles à retenir (comme google.com ou monDC.monentreprise.local) en adresses numériques (IP).
+
+
+3. Kerberos : Le Système de Tickets de Cinéma 🎫
+Rôle simple : C'est le protocole de sécurité par défaut d'AD pour l'authentification (prouver qui vous êtes).
+
+Concret : Imaginez que vous entrez dans un parc d'attractions :
+
+Ticket TGT (Ticket Granting Ticket) : C'est votre bracelet d'entrée. Le DC vous le donne une seule fois lorsque vous vous connectez (avec votre mot de passe). 
+Il prouve que vous êtes bien authentifié pour le reste de la journée.
+
+Ticket TGS (Ticket Granting Service) : Pour chaque attraction (ex: l'imprimante, le dossier partagé), vous montrez votre bracelet (TGT) au guichet central, qui vous donne un petit ticket spécifique (TGS) pour cette attraction uniquement. Vous n'avez pas besoin de redonner votre carte d'identité à chaque fois !
+
+Avantage : C'est sécurisé et vous n'avez besoin de saisir votre mot de passe qu'une seule fois.
+
+LDAP (Lightweight Directory Access Protocol) : La Langue de l'Annuaire 
+🗣️Rôle simple : C'est le langage standard que les applications et les administrateurs utilisent pour lire et modifier les informations dans l'annuaire d'Active Directory.Concret : 
+Si Active Directory est le livre de recettes de l'entreprise (contenant tous les utilisateurs, groupes, ordinateurs), LDAP est la manière dont on écrit et on lit ces recettes.Un administrateur utilise LDAP pour créer un nouvel utilisateur, réinitialiser un mot de passe, ou rechercher la liste des membres d'un groupe.Détail 
+Par défaut, il utilise le port 389 (non chiffré).
+Pour plus de sécurité (chiffrement), on utilise LDAPS (LDAP sur SSL/TLS) sur le port 636.🎯
+En Résumé
+DC: Détient la base de données d'AD, gère l'authentification.
+DNS: La Carte RoutièrePermet de trouver les DCs et les services par leur nom.
+KerberosLe Système de TicketsProtocole qui prouve votre identité sans re-saisir le mot de passe.
+LDAPLe Langage de l'AnnuaireProtocole pour lire et modifier les utilisateurs, groupes, etc., dans l'annuaire.
+
+
