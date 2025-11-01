@@ -1,0 +1,44 @@
+🗂️ 1. Les permissions de partage
+
+Elles s’appliquent uniquement quand un dossier est accédé à distance (via le réseau).
+
+➡️ Exemple : quand un utilisateur ouvre \\Serveur\Partage depuis son poste.
+
+Elles servent à limiter l’accès via le partage réseau.
+Elles ne s’appliquent pas si tu accèdes au dossier directement depuis le disque local du serveur.
+Niveaux de permissions de partage :
+
+Lecture:	L’utilisateur peut ouvrir et lire les fichiers.
+Modification:	Il peut aussi modifier ou supprimer les fichiers.
+Contrôle total:	Il a tous les droits (lecture, écriture, suppression, changement de droits).
+
+💾 2. Les permissions NTFS
+
+Elles s’appliquent directement sur le système de fichiers Windows (le disque dur).
+Elles fonctionnent qu’on accède au dossier localement ou à distance (via le reseau).
+
+Niveau	
+Lecture, Exécution:	Lire, ouvrir les fichiers, exécuter les programmes.
+Modification:	Ajouter, modifier, supprimer les fichiers.
+Contrôle total:	Tous les droits, y compris changer les autorisations.
+
+⚖️ 3. Comment elles interagissent ensemble ?
+
+Quand un dossier est partagé, les deux types de permissions s’appliquent :
+Les permissions de partage
+Les permissions NTFS
+
+👉 La plus restrictive des deux sera appliquée à l’utilisateur.
+
+🔍 Exemple concret
+
+Supposons :
+
+Onglet Partage: Le partage \\Serveur\Compta autorise Contrôle total.
+Onglet Sécurité: Mais dans les permissions NTFS, l’utilisateur n’a que Lecture.
+
+➡️ Résultat : il ne pourra que lire les fichiers, car Lecture est la plus restrictive.
+Même si le partage lui permet "Contrôle total", NTFS le bloque.
+
+✅ Recommandation
+Mettre Tout le monde = Contrôle total en partage, et gérer la sécurité avec NTFS	(plus précis et prioritaire)
